@@ -16,7 +16,7 @@ public class Game {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 	private String title;
 	@Column(name = "game_year")
 	private Integer year;
@@ -36,7 +36,7 @@ public class Game {
 	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
 			String shortDescription, String longDescription) {
 	
-		Id = id;
+		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
@@ -48,11 +48,11 @@ public class Game {
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -122,7 +122,7 @@ public class Game {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Id);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public class Game {
 		if (getClass() != obj.getClass())
 			return false;
 		Game other = (Game) obj;
-		return Objects.equals(Id, other.Id);
+		return Objects.equals(id, other.id);
 	}
 	
 	
