@@ -4,13 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fabianarsff.dslist.dto.GameDTO;
 import com.fabianarsff.dslist.dto.GameMinDTO;
 import com.fabianarsff.dslist.entities.Game;
 import com.fabianarsff.dslist.repositories.GameRepository;
 
-import jakarta.transaction.Transactional;
+
 
 @Service
 public class GameService {
@@ -29,7 +30,7 @@ public class GameService {
 	@Transactional(readOnly = true)
 	public List<GameMinDTO> findAll(){
 		List<Game> result = gameRepository.findAll();
-		return  result.stream().map(x -> new GameMinDTO(x)).toList();
+		return result.stream().map(x -> new GameMinDTO(x)).toList();
 	
 	}
 }
